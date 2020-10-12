@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+    android:id="@+id/tvInmuebleLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorLightGrey"
+    android:text="Inmueble"
+    android:textAlignment="center"
+    android:textSize="18dp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNombreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorLightGrey"
+        android:text="Fecha de Inicio"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInmuebleLabel" />
+
+    <TextView
+        android:id="@+id/tvDniLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorLightGrey"
+        android:text="Fecha de Fin."
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreLabel" />
+
+    <TextView
+        android:id="@+id/tvDireccionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightGrey"
+        android:text="Inquilino"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDniLabel" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/design_default_color_on_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInquilino" />
+
+    <TextView
+        android:id="@+id/tvFechaIni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Fecha Inicio"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tvNombreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvInmueble" />
+
+    <TextView
+        android:id="@+id/tvInmueble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:text="Inmueble"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tvInmuebleLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvInquilino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Inquilino"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tvDireccionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaFin" />
+
+    <TextView
+        android:id="@+id/tvFechaFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Fecha Fin"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tvDniLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaIni" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
