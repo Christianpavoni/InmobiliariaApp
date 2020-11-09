@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.modelo.Inmueble;
+import com.example.inmobiliaria.request.ApiClient;
 
 import java.util.ArrayList;
 
@@ -141,7 +142,7 @@ public class DetallePropiedadFragment extends Fragment {
                 }
 
                 Glide.with(getContext())
-                        .load("http://131.72.73.36:45501"+inmueble.getFoto())
+                        .load(ApiClient.PATH+inmueble.getFoto())
                         .placeholder(R.drawable.ic_launcher_background)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .centerCrop()

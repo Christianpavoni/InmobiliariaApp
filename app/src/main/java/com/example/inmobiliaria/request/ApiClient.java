@@ -23,14 +23,14 @@ import retrofit2.http.Path;
 
 public class ApiClient {
 
-    private static final String PATH="http://131.72.73.36:45501/api/";
+    public static final String PATH="http://131.72.73.36:45501";
     private static MyApiInterface myApiInterface;
 
     public static MyApiInterface getMyApiInterface(){
 
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(PATH)
+                .baseUrl(PATH+"/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 

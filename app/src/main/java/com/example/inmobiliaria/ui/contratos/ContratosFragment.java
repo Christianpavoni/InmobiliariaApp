@@ -27,6 +27,7 @@ import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.modelo.Contrato;
 import com.example.inmobiliaria.modelo.Inmueble;
 import com.example.inmobiliaria.modelo.Pago;
+import com.example.inmobiliaria.request.ApiClient;
 import com.example.inmobiliaria.ui.pagos.PagosFragment;
 import com.example.inmobiliaria.ui.pagos.PagosViewModel;
 
@@ -121,7 +122,7 @@ public class ContratosFragment extends Fragment {
 
             ImageView foto=itemView.findViewById(R.id.ivFoto);
             Glide.with(getContext())
-                    .load("http://131.72.73.36:45501"+inmueble.getFoto())
+                    .load(ApiClient.PATH +inmueble.getFoto())
                     .placeholder(R.drawable.ic_launcher_background)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .fitCenter()
