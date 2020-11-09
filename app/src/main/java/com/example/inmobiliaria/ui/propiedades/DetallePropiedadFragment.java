@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.modelo.Inmueble;
 
@@ -89,14 +91,35 @@ public class DetallePropiedadFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                Inmueble i= new Inmueble();
+
+                i.setDireccion(etDireccion.getText().toString());
                 etDireccion.setEnabled(false);
+
+                i.setCantDeAmbientes(Integer.parseInt(etCantDeAmbientes.getText().toString()));
                 etCantDeAmbientes.setEnabled(false);
+
+                i.setPrecio(Integer.valueOf(etPrecio.getText().toString().substring(1)));
                 etPrecio.setEnabled(false);
+
+                i.setTipoDeInmueble(spTipoDeInmueble.getSelectedItem().toString());
                 spTipoDeInmueble.setEnabled(false);
+
+                i.setTipoDeUso(spTipoDeUso.getSelectedItem().toString());
                 spTipoDeUso.setEnabled(false);
+
+                if(cbDisponible.isChecked()){
+                    i.setEstado("Disponible");
+                }else{
+                    i.setEstado("Suspendido");
+                }
                 cbDisponible.setEnabled(false);
+
+
                 btAceptar.setVisibility(View.GONE);
                 btEditar.setVisibility(View.VISIBLE);
+
+                vm.editarInmueble(i,getArguments());
             }
         });
 
@@ -111,8 +134,18 @@ public class DetallePropiedadFragment extends Fragment {
                 spTipoDeInmueble.setSelection(Inmueble.getTipoDeInmuebles().indexOf(inmueble.getTipoDeInmueble()));
                 spTipoDeUso.setSelection(Inmueble.getTipoDeUsos().indexOf(inmueble.getTipoDeUso()));
                 etPrecio.setText("$"+inmueble.getPrecio());
-                cbDisponible.setChecked(inmueble.getDisponible());
-                ivFoto.setImageResource(inmueble.getFoto());
+                if(inmueble.getEstado().equals("Disponible")){
+                    cbDisponible.setChecked(true);
+                }else{
+                    cbDisponible.setChecked(false);
+                }
+
+                Glide.with(getContext())
+                        .load("http://131.72.73.36:45501"+inmueble.getFoto())
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .centerCrop()
+                        .into(ivFoto);
 
             }
         });

@@ -1,5 +1,13 @@
 package com.example.inmobiliaria.ui.propiedades;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,33 +15,57 @@ import androidx.lifecycle.ViewModel;
 import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.modelo.Inmueble;
 import com.example.inmobiliaria.modelo.Propietario;
+import com.example.inmobiliaria.request.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PropiedadesViewModel extends ViewModel {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-    private MutableLiveData<List<Inmueble>> inmuebles;
+public class PropiedadesViewModel extends AndroidViewModel {
 
-    public PropiedadesViewModel() {
+    private MutableLiveData<ArrayList<Inmueble>> inmuebles;
+    private Context context;
+
+    public PropiedadesViewModel(@NonNull Application application) {
+        super(application);
+        this.context=application.getApplicationContext();
 
     }
 
-    public LiveData<List<Inmueble>> getInmuebles() {
+    public LiveData<ArrayList<Inmueble>> getInmuebles() {
         if(inmuebles==null){
-            inmuebles=new MutableLiveData<List<Inmueble>>();
+            inmuebles=new MutableLiveData<>();
         }
         return inmuebles;
     }
 
     public void recuperarInmuebles(){
 
-        List<Inmueble> lista= new ArrayList<>();
-        Inmueble i1= new Inmueble(1,"Almirante Brown 750",2,"Casa","Residencial",20000d,true, R.drawable.casa1,1,new Propietario());
-        Inmueble i2= new Inmueble(2,"Javier Loyola 1365",3,"Departamento","Comercial",15000d,false,R.drawable.casa2,1,new Propietario());
-        lista.add(i1);
-        lista.add(i2);
-        inmuebles.setValue(lista);
+        SharedPreferences sp= context.getSharedPreferences("data",0);
+        String token = sp.getString("token","");
+
+        Call<ArrayList<Inmueble>> prop= ApiClient.getMyApiInterface().obtenerInmuebles(token);
+
+        prop.enqueue(new Callback<ArrayList<Inmueble>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Inmueble>> call, Response<ArrayList<Inmueble>> response) {
+                if(response.isSuccessful()){
+                    inmuebles.postValue(response.body());
+                }
+                else{
+                    Toast.makeText(context,"Error al cargar inmuebles.",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Inmueble>> call, Throwable t) {
+                Toast.makeText(context,"Error al recuperar datos",Toast.LENGTH_LONG).show();
+            }
+        });
+
 
     }
 }

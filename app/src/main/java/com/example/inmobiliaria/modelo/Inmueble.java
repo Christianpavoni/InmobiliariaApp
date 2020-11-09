@@ -4,105 +4,106 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Inmueble implements Serializable {
-    private int IdInmueble;
-    private String Direccion;
-    private int CantDeAmbientes;
-    private String TipoDeInmueble;
-    private String TipoDeUso;
-    private Double Precio;
-    private Boolean Disponible;
-    private int Foto;
-    private int IdPropietario;
-    private Propietario Propietario;
+    private int idInmueble;
+    private String direccion;
+    private int cantDeAmbientes;
+    private String tipoDeInmueble;
+    private String tipoDeUso;
+    private int precio;
+    private String estado;
+    private String foto;
+    private int idPropietario;
+
+
 
 
     public Inmueble() {
 
     }
 
-    public Inmueble(int idInmueble,String direccion, int cantDeAmbientes, String tipoDeInmueble, String tipoDeUso, Double precio, Boolean disponible, int foto, int idPropietario,Propietario propietario) {
-        IdInmueble=idInmueble;
-        Direccion = direccion;
-        CantDeAmbientes = cantDeAmbientes;
-        TipoDeInmueble = tipoDeInmueble;
-        TipoDeUso = tipoDeUso;
-        Precio = precio;
-        Disponible = disponible;
-        Foto = foto;
-        IdPropietario=idPropietario;
-        Propietario=propietario;
+    public Inmueble(int idInmueble,String direccion, int cantDeAmbientes, String tipoDeInmueble, String tipoDeUso, int precio, String estado, String foto, int idPropietario) {
+        this.idInmueble=idInmueble;
+        this.direccion = direccion;
+        this.cantDeAmbientes = cantDeAmbientes;
+        this.tipoDeInmueble = tipoDeInmueble;
+        this.tipoDeUso = tipoDeUso;
+        this.precio = precio;
+        this.estado = estado;
+        this.foto = foto;
+        this.idPropietario=idPropietario;
+
     }
 
     public int getIdInmueble() {
-        return IdInmueble;
+        return idInmueble;
     }
 
     public void setIdInmueble(int idInmueble) {
-        IdInmueble = idInmueble;
-    }
-
-    public com.example.inmobiliaria.modelo.Propietario getPropietario() {
-        return Propietario;
-    }
-
-    public void setPropietario(com.example.inmobiliaria.modelo.Propietario propietario) {
-        Propietario = propietario;
+        this.idInmueble = idInmueble;
     }
 
     public String getDireccion() {
-        return Direccion;
+        return direccion;
     }
 
     public void setDireccion(String direccion) {
-        Direccion = direccion;
+        this.direccion = direccion;
     }
 
     public int getCantDeAmbientes() {
-        return CantDeAmbientes;
+        return cantDeAmbientes;
     }
 
     public void setCantDeAmbientes(int cantDeAmbientes) {
-        CantDeAmbientes = cantDeAmbientes;
+        this.cantDeAmbientes = cantDeAmbientes;
     }
 
     public String getTipoDeInmueble() {
-        return TipoDeInmueble;
+        return tipoDeInmueble;
     }
 
     public void setTipoDeInmueble(String tipoDeInmueble) {
-        TipoDeInmueble = tipoDeInmueble;
+        this.tipoDeInmueble = tipoDeInmueble;
     }
 
     public String getTipoDeUso() {
-        return TipoDeUso;
+        return tipoDeUso;
     }
 
     public void setTipoDeUso(String tipoDeUso) {
-        TipoDeUso = tipoDeUso;
+        this.tipoDeUso = tipoDeUso;
     }
 
-    public Double getPrecio() {
-        return Precio;
+    public int getPrecio() {
+        return precio;
     }
 
-    public void setPrecio(Double precio) {
-        Precio = precio;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
-    public Boolean getDisponible() {
-        return Disponible;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setDisponible(Boolean disponible) {
-        Disponible = disponible;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public int getFoto() {
-        return Foto;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setFoto(int foto) {
-        Foto = foto;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getIdPropietario() {
+        return idPropietario;
+    }
+
+    public void setIdPropietario(int idPropietario) {
+        this.idPropietario = idPropietario;
     }
 
     static public ArrayList<String> getTipoDeInmuebles(){

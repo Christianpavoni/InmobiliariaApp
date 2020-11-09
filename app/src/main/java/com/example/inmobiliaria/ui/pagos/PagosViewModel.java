@@ -38,8 +38,8 @@ public class PagosViewModel extends ViewModel {
 
     public void cargarInmuebles() {
         ArrayList<Inmueble> lista = new ArrayList<>();
-        lista.add(new Inmueble(1,"Almirante Brown 750",2,"Casa","Residencial",20000d,true, R.drawable.casa1,1,new Propietario()));
-        lista.add(new Inmueble(2,"Javier Loyola 1365",3,"Casa","Residencial",20000d,false,R.drawable.casa2,1,new Propietario()));
+        lista.add(new Inmueble(1,"Almirante Brown 750",2,"Casa","Residencial",20000,"Disponible", "R.drawable.casa1",1));
+        lista.add(new Inmueble(2,"Javier Loyola 1365",3,"Casa","Residencial",20000,"Suspendido","R.drawable.casa2",1));
 
         this.inmuebles.setValue(lista);
 

@@ -1,13 +1,14 @@
 package com.example.inmobiliaria.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Contrato implements Serializable {
     private int idContrato;
     private String detalle;
-    private Date fechaDeInicio;
-    private Date fechaDeFinalizacion;
+    private String fechaDeInicio;
+    private String fechaDeFinalizacion;
     private double monto;
     private int idInquilino;
     private Inquilino inquilino;
@@ -17,7 +18,7 @@ public class Contrato implements Serializable {
     public Contrato() {
     }
 
-    public Contrato(int idContrato, String detalle, Date fechaDeInicio, Date fechaDeFinalizacion, double monto, int idInquilino, Inquilino inquilino, int idInmueble, Inmueble inmueble) {
+    public Contrato(int idContrato, String detalle, String fechaDeInicio, String fechaDeFinalizacion, double monto, int idInquilino, Inquilino inquilino, int idInmueble, Inmueble inmueble) {
         this.idContrato = idContrato;
         this.detalle = detalle;
         this.fechaDeInicio = fechaDeInicio;
@@ -45,19 +46,19 @@ public class Contrato implements Serializable {
         this.detalle = detalle;
     }
 
-    public Date getFechaDeInicio() {
+    public String getFechaDeInicio() {
         return fechaDeInicio;
     }
 
-    public void setFechaDeInicio(Date fechaDeInicio) {
+    public void setFechaDeInicio(String fechaDeInicio) {
         this.fechaDeInicio = fechaDeInicio;
     }
 
-    public Date getFechaDeFinalizacion() {
+    public String getFechaDeFinalizacion() {
         return fechaDeFinalizacion;
     }
 
-    public void setFechaDeFinalizacion(Date fechaDeFinalizacion) {
+    public void setFechaDeFinalizacion(String fechaDeFinalizacion) {
         this.fechaDeFinalizacion = fechaDeFinalizacion;
     }
 

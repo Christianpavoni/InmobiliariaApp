@@ -52,8 +52,6 @@ public class PropiedadesFragment extends Fragment {
 
         appBar.addView(tabLayout);
 
-
-
         vm= ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(PropiedadesViewModel.class);
 
         vm.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
@@ -61,7 +59,6 @@ public class PropiedadesFragment extends Fragment {
             public void onChanged(List<Inmueble> inmuebles) {
                 ViewPageAdapter vpa=new ViewPageAdapter(getParentFragmentManager(),getLifecycle());
 
-                int n=1;
                 for (Inmueble inmueble :inmuebles) {
 
                     Bundle bundle=new Bundle();
@@ -69,7 +66,6 @@ public class PropiedadesFragment extends Fragment {
                     DetallePropiedadFragment f=new DetallePropiedadFragment();
                     f.setArguments(bundle);
                     vpa.addFragment(f);
-                    n++;
 
                 }
 

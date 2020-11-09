@@ -7,19 +7,21 @@ public class Propietario {
     private String nombre;
     private String apellido;
     private String email;
-    private String password;
-    private BigInteger telefono;
+    private String clave;
+    private String telefono;
+    private String dni;
 
     public Propietario() {
     }
 
-    public Propietario(int idPropietario,String nombre, String apellido, String email, String password,BigInteger telefono) {
+    public Propietario(int idPropietario,String nombre, String apellido, String email, String clave,String telefono,String dni) {
         this.idPropietario=idPropietario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.password = password;
+        this.clave = clave;
         this.telefono=telefono;
+        this.dni=dni;
     }
 
     public int getIdPropietario() {
@@ -30,12 +32,20 @@ public class Propietario {
         this.idPropietario = idPropietario;
     }
 
-    public BigInteger getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(BigInteger telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
@@ -62,11 +72,11 @@ public class Propietario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getClave() {
+        return clave;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }

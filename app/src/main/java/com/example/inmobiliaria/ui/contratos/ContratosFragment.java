@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.modelo.Contrato;
 import com.example.inmobiliaria.modelo.Inmueble;
@@ -81,9 +83,7 @@ public class ContratosFragment extends Fragment {
                             }
                         });
 
-                        vm.cargarListaDeContratos(inmueble.getDireccion());
-
-
+                        vm.cargarListaDeContratos(inmueble.getIdInmueble());
 
 
                     }
@@ -120,7 +120,12 @@ public class ContratosFragment extends Fragment {
             Inmueble inmueble= lista.get(position);
 
             ImageView foto=itemView.findViewById(R.id.ivFoto);
-            foto.setImageResource(inmueble.getFoto());
+            Glide.with(getContext())
+                    .load("http://131.72.73.36:45501"+inmueble.getFoto())
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .fitCenter()
+                    .into(foto);
 
             TextView direccion=itemView.findViewById(R.id.tvDireccion);
             direccion.setText(inmueble.getDireccion());

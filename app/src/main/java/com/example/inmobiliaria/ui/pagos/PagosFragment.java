@@ -127,7 +127,7 @@ public class PagosFragment extends Fragment {
             Inmueble inmueble= lista.get(position);
 
             ImageView foto=itemView.findViewById(R.id.ivFoto);
-            foto.setImageResource(inmueble.getFoto());
+
 
             TextView direccion=itemView.findViewById(R.id.tvDireccion);
             direccion.setText(inmueble.getDireccion());

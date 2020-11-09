@@ -31,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
     public void inicializar(){
         vm= ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(LoginActivityViewModel.class);
 
-        vm.getError().observe(this, new Observer<String>() {
+        vm.getMsg().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(String error) {
-                Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
+            public void onChanged(String msg) {
+                Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
             }
         });
 
